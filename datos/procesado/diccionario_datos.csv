@@ -1,0 +1,14 @@
+columna,tipo,descripción,nulos
+id,entero,Identificador de la fila en el archivo original Big_AHR.csv (trazabilidad),0
+fuente,texto,"A = reseñas de TripAdvisor con sede identificada; B = reseñas sin sede (corpus COAH), usadas como prueba externa",0
+sede_id,texto,Código seudónimo de la sede (S001…); sin_sede en la fuente B,0
+provincia,texto,Provincia de la sede (en Bodytech: la ciudad),0
+rating,entero,Calificación de 1 a 5 estrellas (no es entrada del modelo),0
+sentimiento,texto,"Etiqueta: negativa (1-2★), neutra (3★), positiva (4-5★)",0
+titulo,texto,Título limpio y anonimizado,0
+resena,texto,Reseña limpia y anonimizada,0
+texto,texto,"Entrada de los modelos: título + "". "" + reseña",0
+idioma,texto,Idioma detectado (langdetect),0
+cortada_en_origen,booleano,La reseña original terminaba en «…» (texto incompleto),0
+n_nombres_enmascarados,entero,Cantidad de nombres de personas reemplazados por [NOMBRE],0
+parte,texto,"train, val, test (fuente A, partición por sede), externo (fuente B) u otro_idioma (excluida del entrenamiento)",0

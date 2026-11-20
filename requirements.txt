@@ -1,0 +1,21 @@
+# Versiones con las que se ejecutó el notebook principal (Python 3.13, Linux, CPU).
+# Instalación:  python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+numpy==2.5.3
+pandas==3.0.5
+scipy==1.18.1
+scikit-learn==1.9.1
+matplotlib==3.11.2
+tensorflow==2.21.0
+keras==3.15.1
+gensim==4.4.0
+langdetect==1.0.9
+spacy==3.8.18
+es_core_news_sm @ https://github.com/explosion/spacy-models/releases/download/es_core_news_sm-3.8.0/es_core_news_sm-3.8.0-py3-none-any.whl
+joblib==1.6.0
+python-dotenv==1.2.3
+# Demo y pruebas
+streamlit==1.67.0
+pytest==9.1.1
+# Para ejecutar los notebooks fuera de Jupyter/Colab
+ipykernel==7.4.0
+nbconvert==7.17.2

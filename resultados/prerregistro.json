@@ -1,0 +1,32 @@
+{
+  "metrica_principal": "F1 macro en test con sedes no vistas",
+  "clase_critica": "negativa",
+  "criterios": {
+    "mejora_f1_macro": 0.02,
+    "recall_critico": 0.9,
+    "latencia_p95_ms": 100,
+    "abstencion_max": 0.25
+  },
+  "calidad_auto": 0.9,
+  "presupuesto_redes": {
+    "embed_dim": 64,
+    "units": 64,
+    "dropout": 0.3,
+    "lr": 0.001,
+    "epochs": 15,
+    "batch_size": 64,
+    "paciencia": 3
+  },
+  "semillas": [
+    42,
+    1,
+    2,
+    3,
+    4
+  ],
+  "hipotesis": {
+    "H1": "Un modelo avanzado (BiLSTM o BETO) supera al baseline TF-IDF en al menos 0,02 de F1 macro sin perder más de 0,01 de recall de negativas.",
+    "H2": "Iniciar la BiLSTM con vectores de Word2Vec la mejora frente a vectores al azar (el cuello de botella es el embedding).",
+    "H3": "La clase neutra es la más difícil para todos los modelos."
+  }
+}

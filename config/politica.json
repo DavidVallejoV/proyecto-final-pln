@@ -1,0 +1,32 @@
+{
+  "modelo": "baseline_tfidf_lr",
+  "version_modelo": "a35d91355926",
+  "umbral_confianza": 0.5,
+  "tau_negativa": 0.323,
+  "max_palabras_desconocidas": 0.3,
+  "neutra_a_revision": true,
+  "idiomas_permitidos": [
+    "es"
+  ],
+  "excluir_de_nombres": [
+    "almeria",
+    "almería",
+    "andalucia",
+    "andalucía",
+    "cadiz",
+    "cordoba",
+    "cádiz",
+    "córdoba",
+    "españa",
+    "granada",
+    "huelva",
+    "jaen",
+    "jaén",
+    "malaga",
+    "málaga",
+    "sevilla"
+  ],
+  "elegido_con": "validación (partición por sede)",
+  "semilla": 42,
+  "fecha": "2026-11-19"
+}

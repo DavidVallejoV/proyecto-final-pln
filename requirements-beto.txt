@@ -1,0 +1,8 @@
+# Notebook 02 (BETO). Pensado para Google Colab con GPU, donde ya vienen instalados.
+# Versiones con las que se probó el código:
+torch==2.15.0
+transformers==5.23.0
+datasets==5.2.0
+accelerate==1.16.0
+pandas
+scikit-learn

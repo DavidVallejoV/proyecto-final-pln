@@ -1,0 +1,15 @@
+{
+  "python": "3.13.18",
+  "numpy": "2.5.3",
+  "pandas": "3.0.5",
+  "scikit-learn": "1.9.1",
+  "tensorflow": "2.21.0",
+  "gensim": "4.4.0",
+  "spacy": "3.8.18",
+  "sistema": "Linux-6.18.44-fc-v726-x86_64-with-glibc2.39",
+  "procesador": "x86_64",
+  "núcleos": 2,
+  "RAM (GB)": 8.4,
+  "GPU": false,
+  "semilla": 42
+}

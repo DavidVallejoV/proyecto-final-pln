@@ -1,0 +1,12 @@
+{
+  "variante": "bilstm_w2v",
+  "semilla": 1,
+  "seq_len": 160,
+  "max_tokens": 10000,
+  "clases": [
+    "negativa",
+    "neutra",
+    "positiva"
+  ],
+  "tensorflow": "2.21.0"
+}
