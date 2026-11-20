@@ -1,0 +1,105 @@
+{
+  "checkpoint": "dccuchile/bert-base-spanish-wwm-cased",
+  "max_length": 256,
+  "semilla": 42,
+  "corridas_validacion": [
+    {
+      "max_length": 128,
+      "semilla": 42,
+      "f1_val": 0.7942817413221711,
+      "recall_negativa_val": 0.7905982905982906,
+      "f1_val_por_epoca": [
+        0.7738,
+        0.7916,
+        0.7943
+      ],
+      "segundos": 175.445982973
+    },
+    {
+      "max_length": 256,
+      "semilla": 42,
+      "f1_val": 0.8132766462450757,
+      "recall_negativa_val": 0.8504273504273504,
+      "f1_val_por_epoca": [
+        0.7964,
+        0.8062,
+        0.8133
+      ],
+      "segundos": 260.17562592999997
+    }
+  ],
+  "semillas_extra": [
+    {
+      "max_length": 256,
+      "semilla": 1,
+      "f1_val": 0.801450284881744,
+      "recall_negativa_val": 0.8333333333333334,
+      "f1_val_por_epoca": [
+        0.7854,
+        0.7839,
+        0.8015
+      ],
+      "segundos": 247.70822660399995,
+      "f1_test": 0.79338919042433
+    },
+    {
+      "max_length": 256,
+      "semilla": 2,
+      "f1_val": 0.8141071526970304,
+      "recall_negativa_val": 0.8162393162393162,
+      "f1_val_por_epoca": [
+        0.7663,
+        0.8123,
+        0.8141
+      ],
+      "segundos": 263.763551882,
+      "f1_test": 0.7907821617608456
+    }
+  ],
+  "f1_test_semillas": [
+    0.7863738848186288,
+    0.79338919042433,
+    0.7907821617608456
+  ],
+  "parametros": 109853187,
+  "tamano_mb": 440.2,
+  "segundos_entrenamiento": 260.17562592999997,
+  "latencia_p50_ms_cpu": 204.5521384999347,
+  "latencia_p95_ms_cpu": 379.83553554995524,
+  "resenas_por_segundo_cpu": 2.80685262255572,
+  "robustez": {
+    "original": {
+      "F1": 0.7863738848186288,
+      "recall_negativa": 0.8342105263157895
+    },
+    "todo en MAYÚSCULAS": {
+      "F1": 0.5080035071420955,
+      "recall_negativa": 0.9026315789473685
+    },
+    "sin tildes": {
+      "F1": 0.7885829343197363,
+      "recall_negativa": 0.8473684210526315
+    },
+    "errores de tecleo en 1 de cada 10 palabras": {
+      "F1": 0.7795326578702092,
+      "recall_negativa": 0.8421052631578947
+    },
+    "errores de tecleo en 3 de cada 10 palabras": {
+      "F1": 0.7714483160461035,
+      "recall_negativa": 0.8447368421052631
+    },
+    "sin título": {
+      "F1": 0.7647848631981885,
+      "recall_negativa": 0.7842105263157895
+    },
+    "solo la primera mitad": {
+      "F1": 0.7543603427693291,
+      "recall_negativa": 0.8184210526315789
+    }
+  },
+  "gpu": "Tesla T4",
+  "nucleos_cpu": 2,
+  "torch": "2.14.1+cu130",
+  "transformers": "5.22.1",
+  "fecha": "2026-11-20 11:59"
+}
