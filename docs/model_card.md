@@ -36,7 +36,7 @@ Corpus anonimizado de 13.331 reseñas únicas de hoteles de Andalucía (ver `dat
 
 **Con la política de decisión (baseline, test):** de cada 1.000 reseñas, 646 se registran solas (aciertan el 96 %), 177 van a revisión y 178 generan alerta. Las alertas cubren el 87,9 % de las quejas reales y una persona ve el 99,5 %.
 
-**Por segmento:** el F1 macro por provincia va de 0,661 a 0,756; las cifras de provincias con pocas quejas son inestables. Las reseñas de 101 a 160 palabras son las más difíciles.
+**Por segmento:** el F1 macro por provincia va de 0,661 a 0,755; las cifras de provincias con pocas quejas son inestables. Las reseñas de 101 a 160 palabras son las más difíciles.
 
 ## Limitaciones conocidas
 - La etiqueta viene de las estrellas: el 84 % de los errores son reseñas de 2★ a 4★, muchas con opiniones mixtas.
