@@ -17,17 +17,17 @@ no puede decidir con confianza.
 ## Resultados (test: 2.827 reseñas de 176 sedes que el modelo nunca vio)
 | Modelo | F1 macro | Recall de quejas | ECE | F1 prueba externa | Latencia p95 (ms) | Memoria (MB) |
 |---|---|---|---|---|---|---|
-| TF-IDF + regresión logística (baseline, desplegado) | 0,723 | 0,818 | 0,119 | 0,744 | 0,9 | 160 |
-| BiLSTM, embedding al azar | 0,714 | 0,795 | 0,037 | 0,734 | 13,0 | — |
-| BiLSTM + Word2Vec | 0,727 | 0,853 | 0,044 | 0,746 | 10,7 | 662 |
+| TF-IDF + regresión logística (baseline, desplegado) | 0,723 | 0,818 | 0,119 | 0,744 | 1,2 | 160 |
+| BiLSTM, embedding al azar | 0,714 | 0,795 | 0,037 | 0,734 | 14,6 | — |
+| BiLSTM + Word2Vec | 0,727 | 0,853 | 0,044 | 0,746 | 14,3 | 662 |
+| BETO (notebook 02, GPU) | 0,786 | 0,834 | 0,075 | 0,818 | 379,8 | — |
 
-> **BETO:** el notebook 02 está listo; sus cifras se agregan a esta tabla cuando se ejecute en Colab con GPU y sus archivos se suban a `resultados/beto/`.
-
-- **Sin evidencia de que la BiLSTM supere al baseline:** +0,004 de F1 con intervalo de confianza del 95 % de −0,015 a +0,023 (la meta prerregistrada era +0,02), y 11 veces más latencia.
+- **BETO es el único modelo que supera al baseline:** +0,064 de F1 (IC 95 % de +0,042 a +0,085, estable con tres semillas) y alertas más precisas (82 % son quejas reales, frente a 66 %). Pero tarda 380 ms por reseña en CPU (el límite prerregistrado era 100 ms) y su F1 cae a 0,508 con el texto en mayúsculas.
+- **Sin evidencia de que la BiLSTM supere al baseline:** +0,004 de F1 con intervalo de confianza del 95 % de −0,015 a +0,023 (la meta prerregistrada era +0,02), y 12 veces más latencia.
 - **Política de decisión** (umbrales elegidos en validación): de cada 1.000 reseñas, 646 se registran solas (96 % de acierto), 177 van a revisión humana y 178 generan alerta. Una persona ve el **99,5 % de las quejas**; las alertas cubren el 87,9 % (meta 90 %, no se cumple en test).
 - **Partición:** quitar 26,6 % de duplicados y partir por sede evita reportar un F1 de 0,802 que en sedes nuevas es de 0,72.
 - **Caso de valor (supuestos explícitos):** beneficio neto de unos $27,7 millones al mes; basta retener 14 afiliados al mes en toda la red para cubrir la operación.
-- **Recomendación:** pilotear el baseline con la política de decisión y revisión humana; no adoptar la BiLSTM.
+- **Recomendación:** pilotear el baseline con la política de decisión y revisión humana, con BETO en paralelo en modo sombra hasta resolver su latencia y su sensibilidad a las mayúsculas; no adoptar la BiLSTM.
 <!-- /RESULTADOS -->
 
 ## Estructura del repositorio
@@ -71,7 +71,7 @@ streamlit run app/demo.py                                # demo en el navegador
 
 **BETO (notebook 02).** Ábralo en Colab con GPU T4 y ejecútelo completo (unos 20 minutos). Descarga `beto_resumen.json`,
 `beto_probabilidades.csv` y `beto_contrafactuales.csv`; súbalos a `resultados/beto/` y vuelva a ejecutar el notebook 01, cuya
-sección 15 los agrega a la comparación.
+sección 15 los agrega a la comparación. Los archivos de nuestra ejecución (GPU Tesla T4, 20 de noviembre de 2026) ya están en `resultados/beto/`.
 
 ## Reproducibilidad
 - Semilla 42 en todo el flujo; las redes se repiten con 5 semillas para medir la variación.

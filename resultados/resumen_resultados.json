@@ -12,11 +12,11 @@
       "calidad en lo automático": 0.8886,
       "parámetros": 152658.0,
       "tamaño (MB)": 2.4923,
-      "memoria proceso (MB)": 160.3125,
-      "entrenamiento (s)": 1.3272,
-      "latencia p50 (ms)": 0.5923,
-      "latencia p95 (ms)": 0.9425,
-      "reseñas por segundo (lotes de 32)": 11161.9604
+      "memoria proceso (MB)": 160.3203,
+      "entrenamiento (s)": 1.6551,
+      "latencia p50 (ms)": 0.9525,
+      "latencia p95 (ms)": 1.1926,
+      "reseñas por segundo (lotes de 32)": 6609.5916
     },
     "bilstm": {
       "F1 macro test": 0.7137,
@@ -31,10 +31,10 @@
       "parámetros": 706435.0,
       "tamaño (MB)": NaN,
       "memoria proceso (MB)": NaN,
-      "entrenamiento (s)": 59.4912,
-      "latencia p50 (ms)": 7.5322,
-      "latencia p95 (ms)": 12.9643,
-      "reseñas por segundo (lotes de 32)": 1682.4722
+      "entrenamiento (s)": 102.0743,
+      "latencia p50 (ms)": 9.6544,
+      "latencia p95 (ms)": 14.5542,
+      "reseñas por segundo (lotes de 32)": 1595.3853
     },
     "bilstm_w2v": {
       "F1 macro test": 0.7269,
@@ -48,11 +48,29 @@
       "calidad en lo automático": 0.8739,
       "parámetros": 706435.0,
       "tamaño (MB)": 8.6074,
-      "memoria proceso (MB)": 662.4297,
-      "entrenamiento (s)": 89.2561,
-      "latencia p50 (ms)": 6.3615,
-      "latencia p95 (ms)": 10.7436,
-      "reseñas por segundo (lotes de 32)": 2381.2118
+      "memoria proceso (MB)": 662.3555,
+      "entrenamiento (s)": 146.6916,
+      "latencia p50 (ms)": 9.0445,
+      "latencia p95 (ms)": 14.2779,
+      "reseñas por segundo (lotes de 32)": 2050.8773
+    },
+    "beto (notebook 02)": {
+      "F1 macro test": 0.7864,
+      "recall negativa": 0.8342,
+      "F1 neutra": 0.5679,
+      "log loss": 0.3848,
+      "ECE": 0.0752,
+      "F1 macro externo": 0.8178,
+      "umbral (de val)": 0.51,
+      "cobertura": 0.9982,
+      "calidad en lo automático": 0.8873,
+      "parámetros": 109853187.0,
+      "tamaño (MB)": 440.2,
+      "memoria proceso (MB)": NaN,
+      "entrenamiento (s)": 260.1756,
+      "latencia p50 (ms)": 204.5521,
+      "latencia p95 (ms)": 379.8355,
+      "reseñas por segundo (lotes de 32)": 2.8069
     }
   },
   "estabilidad": {
@@ -87,6 +105,10 @@
     "diferencia": [
       -0.0151,
       0.0225
+    ],
+    "beto": [
+      0.0415,
+      0.0848
     ]
   },
   "politicas": {
@@ -97,6 +119,10 @@
     "bilstm_w2v": {
       "umbral_confianza": 0.64,
       "tau_negativa": 0.368
+    },
+    "beto (notebook 02)": {
+      "umbral_confianza": 0.51,
+      "tau_negativa": 0.105
     }
   },
   "politica_tabla": [
@@ -112,7 +138,8 @@
       "automáticas por 1.000": 653.2164,
       "a revisión por 1.000": 164.9123,
       "alertas por 1.000": 181.8713,
-      "acierto en las automáticas": 0.9714
+      "acierto en las automáticas": 0.9714,
+      "alertas que son quejas reales": 0.6785
     },
     {
       "modelo": "tfidf_lr (baseline)",
@@ -126,7 +153,8 @@
       "automáticas por 1.000": 645.5607,
       "a revisión por 1.000": 176.5122,
       "alertas por 1.000": 177.9271,
-      "acierto en las automáticas": 0.9638
+      "acierto en las automáticas": 0.9638,
+      "alertas que son quejas reales": 0.664
     },
     {
       "modelo": "tfidf_lr (baseline)",
@@ -140,7 +168,8 @@
       "automáticas por 1.000": 437.1859,
       "a revisión por 1.000": 218.3138,
       "alertas por 1.000": 344.5003,
-      "acierto en las automáticas": 0.9591
+      "acierto en las automáticas": 0.9591,
+      "alertas que son quejas reales": 0.7488
     },
     {
       "modelo": "bilstm_w2v",
@@ -154,7 +183,8 @@
       "automáticas por 1.000": 631.5789,
       "a revisión por 1.000": 205.848,
       "alertas por 1.000": 162.5731,
-      "acierto en las automáticas": 0.9806
+      "acierto en las automáticas": 0.9806,
+      "alertas que son quejas reales": 0.759
     },
     {
       "modelo": "bilstm_w2v",
@@ -168,7 +198,8 @@
       "automáticas por 1.000": 618.677,
       "a revisión por 1.000": 212.9466,
       "alertas por 1.000": 168.3764,
-      "acierto en las automáticas": 0.9743
+      "acierto en las automáticas": 0.9743,
+      "alertas que son quejas reales": 0.6975
     },
     {
       "modelo": "bilstm_w2v",
@@ -182,7 +213,53 @@
       "automáticas por 1.000": 433.8358,
       "a revisión por 1.000": 234.5059,
       "alertas por 1.000": 331.6583,
-      "acierto en las automáticas": 0.9614
+      "acierto en las automáticas": 0.9614,
+      "alertas que son quejas reales": 0.7727
+    },
+    {
+      "modelo": "beto (notebook 02)",
+      "parte": "validación",
+      "umbral": 0.51,
+      "τ": 0.105,
+      "recall negativa (solo argmax)": 0.8504,
+      "negativas con alerta": 0.9017,
+      "negativas que ve una persona (alerta o revisión)": 0.9872,
+      "negativas que se escapan (automáticas)": 0.0128,
+      "automáticas por 1.000": 741.5205,
+      "a revisión por 1.000": 114.6199,
+      "alertas por 1.000": 143.8596,
+      "acierto en las automáticas": 0.9503,
+      "alertas que son quejas reales": 0.8577
+    },
+    {
+      "modelo": "beto (notebook 02)",
+      "parte": "test",
+      "umbral": 0.51,
+      "τ": 0.105,
+      "recall negativa (solo argmax)": 0.8342,
+      "negativas con alerta": 0.8763,
+      "negativas que ve una persona (alerta o revisión)": 0.9895,
+      "negativas que se escapan (automáticas)": 0.0105,
+      "automáticas por 1.000": 735.7623,
+      "a revisión por 1.000": 120.2688,
+      "alertas por 1.000": 143.9689,
+      "acierto en las automáticas": 0.9529,
+      "alertas que son quejas reales": 0.8182
+    },
+    {
+      "modelo": "beto (notebook 02)",
+      "parte": "externo",
+      "umbral": 0.51,
+      "τ": 0.105,
+      "recall negativa (solo argmax)": 0.904,
+      "negativas con alerta": 0.946,
+      "negativas que ve una persona (alerta o revisión)": 0.996,
+      "negativas que se escapan (automáticas)": 0.004,
+      "automáticas por 1.000": 563.9308,
+      "a revisión por 1.000": 140.1452,
+      "alertas por 1.000": 295.9241,
+      "acierto en las automáticas": 0.9307,
+      "alertas que son quejas reales": 0.8925
     }
   ],
   "por_provincia": {
@@ -250,7 +327,10 @@
       "F1 · bilstm_w2v": 0.7269,
       "recall negativa · bilstm_w2v": 0.8526,
       "cambio F1 · tfidf_lr (baseline)": 0.0,
-      "cambio F1 · bilstm_w2v": 0.0
+      "cambio F1 · bilstm_w2v": 0.0,
+      "F1 · beto (notebook 02)": 0.7864,
+      "recall negativa · beto (notebook 02)": 0.8342,
+      "cambio F1 · beto (notebook 02)": 0.0
     },
     "todo en MAYÚSCULAS": {
       "F1 · tfidf_lr (baseline)": 0.7225,
@@ -258,7 +338,10 @@
       "F1 · bilstm_w2v": 0.7269,
       "recall negativa · bilstm_w2v": 0.8526,
       "cambio F1 · tfidf_lr (baseline)": 0.0,
-      "cambio F1 · bilstm_w2v": 0.0
+      "cambio F1 · bilstm_w2v": 0.0,
+      "F1 · beto (notebook 02)": 0.508,
+      "recall negativa · beto (notebook 02)": 0.9026,
+      "cambio F1 · beto (notebook 02)": -0.2784
     },
     "sin tildes": {
       "F1 · tfidf_lr (baseline)": 0.7108,
@@ -266,7 +349,10 @@
       "F1 · bilstm_w2v": 0.7317,
       "recall negativa · bilstm_w2v": 0.8553,
       "cambio F1 · tfidf_lr (baseline)": -0.0117,
-      "cambio F1 · bilstm_w2v": 0.0048
+      "cambio F1 · bilstm_w2v": 0.0048,
+      "F1 · beto (notebook 02)": 0.7886,
+      "recall negativa · beto (notebook 02)": 0.8474,
+      "cambio F1 · beto (notebook 02)": 0.0022
     },
     "errores de tecleo en 1 de cada 10 palabras": {
       "F1 · tfidf_lr (baseline)": 0.7133,
@@ -274,7 +360,10 @@
       "F1 · bilstm_w2v": 0.6967,
       "recall negativa · bilstm_w2v": 0.8789,
       "cambio F1 · tfidf_lr (baseline)": -0.0092,
-      "cambio F1 · bilstm_w2v": -0.0302
+      "cambio F1 · bilstm_w2v": -0.0302,
+      "F1 · beto (notebook 02)": 0.7795,
+      "recall negativa · beto (notebook 02)": 0.8421,
+      "cambio F1 · beto (notebook 02)": -0.0068
     },
     "errores de tecleo en 3 de cada 10 palabras": {
       "F1 · tfidf_lr (baseline)": 0.6977,
@@ -282,7 +371,10 @@
       "F1 · bilstm_w2v": 0.578,
       "recall negativa · bilstm_w2v": 0.9368,
       "cambio F1 · tfidf_lr (baseline)": -0.0248,
-      "cambio F1 · bilstm_w2v": -0.1489
+      "cambio F1 · bilstm_w2v": -0.1489,
+      "F1 · beto (notebook 02)": 0.7714,
+      "recall negativa · beto (notebook 02)": 0.8447,
+      "cambio F1 · beto (notebook 02)": -0.0149
     },
     "sin título": {
       "F1 · tfidf_lr (baseline)": 0.7014,
@@ -290,7 +382,10 @@
       "F1 · bilstm_w2v": 0.6785,
       "recall negativa · bilstm_w2v": 0.8421,
       "cambio F1 · tfidf_lr (baseline)": -0.0212,
-      "cambio F1 · bilstm_w2v": -0.0485
+      "cambio F1 · bilstm_w2v": -0.0485,
+      "F1 · beto (notebook 02)": 0.7648,
+      "recall negativa · beto (notebook 02)": 0.7842,
+      "cambio F1 · beto (notebook 02)": -0.0216
     },
     "solo la primera mitad": {
       "F1 · tfidf_lr (baseline)": 0.6834,
@@ -298,7 +393,10 @@
       "F1 · bilstm_w2v": 0.6809,
       "recall negativa · bilstm_w2v": 0.7789,
       "cambio F1 · tfidf_lr (baseline)": -0.0391,
-      "cambio F1 · bilstm_w2v": -0.046
+      "cambio F1 · bilstm_w2v": -0.046,
+      "F1 · beto (notebook 02)": 0.7544,
+      "recall negativa · beto (notebook 02)": 0.8184,
+      "cambio F1 · beto (notebook 02)": -0.032
     }
   },
   "drift": {
@@ -362,5 +460,5 @@
     "GPU": false,
     "semilla": 42
   },
-  "minutos_ejecucion": 15.704771685600281
+  "minutos_ejecucion": 25.11787510315577
 }

@@ -14,10 +14,10 @@ import pandas as pd
 RAIZ = Path(__file__).resolve().parents[1]
 
 
-def tasas_del_modelo():
-    """Tasas de la política del baseline en test, separadas para quejas reales y para el resto."""
+def tasas_del_modelo(modelo='tfidf_lr (baseline)'):
+    """Tasas de la política de un modelo en test (por defecto, el baseline), separadas para quejas reales y para el resto."""
     r = json.loads((RAIZ / 'resultados' / 'resumen_resultados.json').read_text(encoding='utf-8'))
-    f = next(x for x in r['politica_tabla'] if x['modelo'] == 'tfidf_lr (baseline)' and x['parte'] == 'test')
+    f = next(x for x in r['politica_tabla'] if x['modelo'] == modelo and x['parte'] == 'test')
     corpus = pd.read_csv(RAIZ / 'datos' / 'procesado' / 'corpus_bodytech_anonimizado.csv', usecols=['parte', 'sentimiento'])
     test = corpus[corpus.parte == 'test']
     n, n_neg = len(test), int((test.sentimiento == 'negativa').sum())
@@ -52,13 +52,14 @@ SUPUESTOS = {
 BASE = {k: v[0] for k, v in SUPUESTOS.items()}
 
 
-def beneficio_neto(s):
-    """Beneficio neto mensual en pesos y sus componentes."""
+def beneficio_neto(s, tasas=None):
+    """Beneficio neto mensual en pesos y sus componentes (con las tasas del baseline, salvo que se pasen otras)."""
+    tasas = tasas or TASAS
     comentarios = s['sedes'] * s['comentarios_por_sede_mes']
     quejas = comentarios * s['pct_quejas']
     no_quejas = comentarios - quejas
-    alertas = quejas * s['alerta_si_queja'] + no_quejas * TASAS['alerta_si_no_queja']
-    revisiones = quejas * TASAS['revision_si_queja'] + no_quejas * TASAS['revision_si_no_queja']
+    alertas = quejas * s['alerta_si_queja'] + no_quejas * tasas['alerta_si_no_queja']
+    revisiones = quejas * tasas['revision_si_queja'] + no_quejas * tasas['revision_si_no_queja']
     contactadas_extra = quejas * max(s['alerta_si_queja'] - s['contacto_hoy'], 0)
     retenidos = contactadas_extra * s['p_cancela_sin_contacto'] * s['reduccion_por_contacto']
     valor_retenido = s['cuota_mensual'] * s['meses_retenidos'] * s['margen']

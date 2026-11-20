@@ -5,7 +5,7 @@
 | **Modelo desplegado en la demo** | Baseline TF-IDF (palabras y pares de palabras) + regresión logística balanceada · `modelos/baseline_tfidf_lr.joblib` |
 | **Versión** | huella SHA-256 `a35d91355926` (la demo la muestra y la registra en cada clasificación) |
 | **Política de decisión** | `config/politica.json`: umbral de confianza 0,50 · alerta si P(negativa) ≥ τ = 0,323 · revisión si hay más de 30 % de palabras desconocidas, otro idioma, texto vacío o predicción neutra |
-| **Alternativas evaluadas** | BiLSTM con embedding al azar y con Word2Vec (`modelos/bilstm/`), BETO (notebook 02) |
+| **Alternativas evaluadas** | BiLSTM con embedding al azar y con Word2Vec (`modelos/bilstm/`); BETO (notebook 02): el más preciso, pero no cumple la latencia en CPU y falla con el texto en mayúsculas; corre en modo sombra durante el piloto |
 | **Dueño del modelo** | Fabián David Sánchez (Machine Learning) · dueño del dato: David Vallejo Villegas (Ciencia de Datos) · dueño del proceso y de la decisión de suspender: Jesús Joseph Suescun (Gerencia de IA) |
 | **Fecha** | noviembre de 2026 |
 
@@ -24,15 +24,15 @@
 Corpus anonimizado de 13.331 reseñas únicas de hoteles de Andalucía (ver `datos/README.md`). Entrenamiento con train (6.873 reseñas de 421 sedes); umbrales con validación (1.710 de 106 sedes); evaluación con test (2.827 de 176 sedes nunca vistas) y con una prueba externa de otra fuente y otra época (1.791).
 
 ## Desempeño (test, sedes nunca vistas)
-| Métrica | Baseline (desplegado) | BiLSTM + Word2Vec |
-|---|---|---|
-| F1 macro (IC 95 %) | 0,723 (0,703 a 0,743) | 0,727 (0,708 a 0,747) |
-| Recall de negativas (clase más probable) | 0,818 | 0,853 |
-| F1 de la clase neutra | 0,472 | 0,480 |
-| F1 macro en la prueba externa | 0,744 | 0,746 |
-| Error de calibración (ECE) | 0,119 | 0,044 |
-| Latencia p95 por reseña (CPU) | 0,9 ms | 10,7 ms |
-| Tamaño en disco · memoria del proceso | 2,5 MB · 160 MB | 8,6 MB · 662 MB |
+| Métrica | Baseline (desplegado) | BiLSTM + Word2Vec | BETO |
+|---|---|---|---|
+| F1 macro (IC 95 %) | 0,723 (0,703 a 0,743) | 0,727 (0,708 a 0,747) | 0,786 (diferencia +0,064; IC +0,042 a +0,085) |
+| Recall de negativas (clase más probable) | 0,818 | 0,853 | 0,834 |
+| F1 de la clase neutra | 0,472 | 0,480 | 0,568 |
+| F1 macro en la prueba externa | 0,744 | 0,746 | 0,818 |
+| Error de calibración (ECE) | 0,119 | 0,044 | 0,075 |
+| Latencia p95 por reseña (CPU) | 1,2 ms | 14,3 ms | 380 ms |
+| Tamaño en disco · memoria del proceso | 2,5 MB · 160 MB | 8,6 MB · 662 MB | 440 MB · no medida |
 
 **Con la política de decisión (baseline, test):** de cada 1.000 reseñas, 646 se registran solas (aciertan el 96 %), 177 van a revisión y 178 generan alerta. Las alertas cubren el 87,9 % de las quejas reales y una persona ve el 99,5 %.
 
