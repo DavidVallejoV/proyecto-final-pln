@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Secretos y configuración local (usar .env.example como plantilla)
+.env
+
+# Artefactos pesados que no se versionan (pesos de BETO: ~440 MB)
+modelos/beto/
+tmp_*/
+*.ckpt
+
+# Sistema
+.DS_Store
+Thumbs.db
